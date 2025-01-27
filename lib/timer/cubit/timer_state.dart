@@ -10,9 +10,12 @@ final class InspectionTimerRunning extends TimerState {
   InspectionTimerRunning(this.remainingTicks);
 }
 
-final class StopWatchRunning extends TimerState {
+final class StopwatchRunning extends TimerState {
   final int elapsedTime;
-  StopWatchRunning(this.elapsedTime);
+  StopwatchRunning(this.elapsedTime);
 }
 
-final class TimerComplete extends TimerState {}
+final class StopwatchComplete extends TimerState {
+  StopwatchComplete(this.elapsedTime);
+  final int elapsedTime;
+}

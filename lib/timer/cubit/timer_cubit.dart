@@ -26,13 +26,13 @@ class TimerCubit extends Cubit<TimerState> {
       const Duration(milliseconds: 47),
       (x) => x * 47,
     ).listen((elapsedTime) {
-      emit(StopWatchRunning(elapsedTime));
+      emit(StopwatchRunning(elapsedTime));
     });
   }
 
-  void stopStopWatch() {
+  void stopStopWatch(int elapsedTime) {
     _timerSubscription?.cancel();
-    emit(TimerComplete());
+    emit(StopwatchComplete(elapsedTime));
   }
 
   @override

@@ -9,43 +9,40 @@ class RubikStopwatchRunning extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TimerCubit, TimerState>(
       builder: (context, state) {
+        final milliseconds = (state as StopwatchRunning).elapsedTime;
+        String minutes =
+            ((milliseconds ~/ 60000) % 60).toString().padLeft(2, '0');
+        String seconds =
+            ((milliseconds ~/ 1000) % 60).toString().padLeft(2, '0');
+        String ms = (milliseconds % 1000).toString().padLeft(3, '0');
         return Scaffold(
-          body: Builder(builder: (context) {
-            final milliseconds = (state as StopWatchRunning).elapsedTime;
-            String minutes =
-                ((milliseconds ~/ 60000) % 60).toString().padLeft(2, '0');
-            String seconds =
-                ((milliseconds ~/ 1000) % 60).toString().padLeft(2, '0');
-            String ms = (milliseconds % 1000).toString().padLeft(3, '0');
-            return GestureDetector(
-              onTap: () => context.read<TimerCubit>().stopStopWatch(),
-              child: Scaffold(
-                body: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Spacer(),
-                      Text(
-                        "$minutes:$seconds\n$ms",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.displayLarge,
-                      ),
-                      const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 22.0),
-                        child: Text(
-                          "Tap to stop the timer",
-                          style: Theme.of(context).textTheme.titleSmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    ],
+            body: GestureDetector(
+          onTap: () => context.read<TimerCubit>().stopStopWatch(milliseconds),
+          child: Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Spacer(),
+                  Text(
+                    "$minutes:$seconds\n$ms",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
-                ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 22.0),
+                    child: Text(
+                      "Tap to stop the timer",
+                      style: Theme.of(context).textTheme.titleSmall,
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
               ),
-            );
-          }),
-        );
+            ),
+          ),
+        ));
       },
     );
   }
