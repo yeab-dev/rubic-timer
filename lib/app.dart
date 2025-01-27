@@ -13,11 +13,13 @@ class App extends StatelessWidget {
           scaffoldBackgroundColor: Color(0xFF021903),
           textTheme: TextTheme(
             displayLarge: TextStyle(
+              fontFamily: 'Tektur',
               fontSize: 60.0,
               color: Color(0xFFE2FF06),
             ),
             titleSmall: TextStyle(
-              fontSize: 17.0,
+              fontFamily: 'Tektur',
+              fontSize: 20.0,
               color: Color(0xFFE2FF06),
             ),
           )),

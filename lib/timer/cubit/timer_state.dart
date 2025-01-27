@@ -5,9 +5,9 @@ sealed class TimerState {}
 
 final class TimerInitial extends TimerState {}
 
-final class ObservationTimerRunning extends TimerState {
+final class InspectionTimerRunning extends TimerState {
   final int remainingTicks;
-  ObservationTimerRunning(this.remainingTicks);
+  InspectionTimerRunning(this.remainingTicks);
 }
 
 final class StopWatchRunning extends TimerState {
