@@ -4,7 +4,7 @@ import 'package:rubic_timer/timer/cubit/timer_cubit.dart';
 import 'package:rubic_timer/timer/presentation/timer_page/inital.dart';
 import 'package:rubic_timer/timer/presentation/timer_page/rubik_inspection_timer_running.dart';
 import 'package:rubic_timer/timer/presentation/timer_page/rubik_stopwatch_running.dart';
-import 'package:rubic_timer/timer/presentation/timer_page/rubik_timer_complete.dart';
+import 'package:rubic_timer/timer/presentation/timer_page/rubik_stopwatch_complete.dart';
 
 class TimerPage extends StatelessWidget {
   const TimerPage({super.key});
@@ -21,7 +21,7 @@ class TimerPage extends StatelessWidget {
           case StopwatchRunning():
             return RubikStopwatchRunning();
           case StopwatchComplete():
-            return RubikTimerComplete();
+            return RubikStopwatchComplete();
         }
       },
     );

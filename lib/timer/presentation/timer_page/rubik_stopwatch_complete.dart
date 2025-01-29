@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rubic_timer/timer/cubit/timer_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RubikTimerComplete extends StatelessWidget {
-  const RubikTimerComplete({super.key});
+class RubikStopwatchComplete extends StatelessWidget {
+  const RubikStopwatchComplete({super.key});
 
   @override
   Widget build(BuildContext context) {
