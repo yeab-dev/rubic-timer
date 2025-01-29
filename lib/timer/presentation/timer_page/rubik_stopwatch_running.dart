@@ -15,8 +15,8 @@ class RubikStopwatchRunning extends StatelessWidget {
         String seconds =
             ((milliseconds ~/ 1000) % 60).toString().padLeft(2, '0');
         String ms = (milliseconds % 1000).toString().padLeft(3, '0');
-        return Scaffold(
-            body: GestureDetector(
+
+        return GestureDetector(
           onTap: () => context.read<TimerCubit>().stopStopWatch(milliseconds),
           child: Scaffold(
             body: Center(
@@ -42,7 +42,7 @@ class RubikStopwatchRunning extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        );
       },
     );
   }

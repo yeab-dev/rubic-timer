@@ -20,11 +20,11 @@ class TimerCubit extends Cubit<TimerState> {
     });
   }
 
-  void startStopWatch() {
+  void startStopWatch({int et = 0}) {
     _timerSubscription?.cancel();
     _timerSubscription = Stream<int>.periodic(
       const Duration(milliseconds: 47),
-      (x) => x * 47,
+      (x) => x * 47 + et,
     ).listen((elapsedTime) {
       emit(StopwatchRunning(elapsedTime));
     });
@@ -33,6 +33,10 @@ class TimerCubit extends Cubit<TimerState> {
   void stopStopWatch(int elapsedTime) {
     _timerSubscription?.cancel();
     emit(StopwatchComplete(elapsedTime));
+  }
+
+  void restart() {
+    emit(TimerInitial());
   }
 
   @override
