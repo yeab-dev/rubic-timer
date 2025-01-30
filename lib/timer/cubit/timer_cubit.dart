@@ -12,6 +12,7 @@ class TimerCubit extends Cubit<TimerState> {
 
   void startInspectionTimer(int ticks) {
     _timerSubscription?.cancel();
+    emit(InspectionTimerRunning(ticks));
     _timerSubscription =
         Stream.periodic(const Duration(seconds: 1), (x) => ticks - x - 1)
             .take(ticks)
